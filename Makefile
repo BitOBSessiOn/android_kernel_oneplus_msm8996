@@ -408,6 +408,11 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security \
 		   -std=gnu89
 
+# Avoid problems (warning as errors) building with GCC 5.x/6.x/7.x
+KBUILD_CFLAGS   += -Wno-memset-transposed-args -Wno-bool-compare \
+		   -Wno-logical-not-parentheses -Wno-unused-const-variable \
+		   -Wno-misleading-indentation
+
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
